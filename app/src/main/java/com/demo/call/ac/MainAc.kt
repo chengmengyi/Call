@@ -29,13 +29,13 @@ class MainAc : BaseAc() {
 
     private fun startAnimator(){
         animator=ValueAnimator.ofInt(0, 100).apply {
-            duration = 10000L
+            duration = 8000L
             interpolator = LinearInterpolator()
             addUpdateListener {
                 val progress = it.animatedValue as Int
                 launch_progress.progress = progress
                 val pro = (10 * (progress / 100.0F)).toInt()
-                if (pro in 2..9){
+                if (pro in 2..7){
                     showOpenAd.showOpenAd(
                         this@MainAc,
                         showing = {
@@ -46,7 +46,7 @@ class MainAc : BaseAc() {
                             toHomeAc()
                         }
                     )
-                }else if (pro>=10){
+                }else if (pro>=8){
                     toHomeAc()
                 }
             }
